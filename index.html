@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Product Dashboard</h1>
+
+        <!-- Search Box -->
+        <div class="search-container">
+            <input type="text" 
+                   id="searchInput" 
+                   placeholder="Tìm kiếm theo tên sản phẩm..." 
+                   class="search-input">
+            
+            <div class="page-size-container">
+                <label for="pageSize">Hiển thị:</label>
+                <select id="pageSize" class="page-size-select">
+                    <option value="5">5</option>
+                    <option value="10" selected>10</option>
+                    <option value="20">20</option>
+                </select>
+                <span>sản phẩm/trang</span>
+            </div>
+        </div>
+
+        <!-- Product Table -->
+        <div class="table-container">
+            <table id="productTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hình ảnh</th>
+                        <th class="sortable" onclick="sortProducts('title')">
+                            Tên sản phẩm
+                            <span class="sort-icon" id="sort-title">⇅</span>
+                        </th>
+                        <th class="sortable" onclick="sortProducts('price')">
+                            Giá
+                            <span class="sort-icon" id="sort-price">⇅</span>
+                        </th>
+                        <th>Danh mục</th>
+                    </tr>
+                </thead>
+                <tbody id="productTableBody">
+                    <!-- Data will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Loading -->
+        <div class="loading" id="loading">Đang tải dữ liệu...</div>
+
+        <!-- Pagination -->
+        <div class="pagination-container" id="paginationContainer">
+            <button class="pagination-btn" id="prevBtn">« Trước</button>
+            <div class="pagination-numbers" id="paginationNumbers"></div>
+            <button class="pagination-btn" id="nextBtn">Sau »</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
